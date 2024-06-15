@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <input type="text" name="name" id="name">
+        <button type="button" onclick="load()">Load</button>
+        <div class="ans" id="ans"></div>
+    </div>
+
+    <script>
+        const load = async () => {
+            const nam = document.getElementById('name').value;
+            const api = `https://api.github.com/users/${nam}`;
+            const ans = document.getElementById('ans');
+            const response = await fetch(api);
+            const data = await response.json();
+            console.log(data.avatar_url);
+            const im = document.createElement('img');
+            im.src = data.avatar_url;
+            ans.appendChild(im);
+            const div = document.createElement('div');
+            div.textContent = data.following;
+            ans.appendChild(div);
+            const a = document.createElement('a');
+            a.href = data.html_url;
+            a.innerText = 'Profile Link';
+            a.target = '_blank';
+            ans.appendChild(a);
+            const name=document.getElementById('name');
+            name.value='';
+            const repo=`https://api.github.com/users/${nam}/repos`;
+            const rep=await fetch(repo);
+            const srep = await rep.json();
+            srep.map((ele,i)=>{
+                const repos= document.createElement('div');
+                repos.innerHTML=`${ele.name} :-  ${ele.language}`;
+                ans.appendChild(repos);
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div class="smain">hello</div>
+        <div class="smain">how</div>
+        <div class="smain">are</div>
+        <div class="smain">you</div>
+    </div>
+</body>
+<script>
+    const main=document.getElementById('main');
+    main.addEventListener('click',(e)=>{
+        if(e.target.matches('div.smain')){
+           main.removeChild(e.target);
+        }
+    })
+</script>
+</html>

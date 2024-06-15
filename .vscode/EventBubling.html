@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">hey
+        <div class="smain">hi
+            <div class="ssmain">hello</div>
+        </div>
+    </div>
+</body>
+<script>
+    const main=document.querySelector('.main');
+    const smain=document.querySelector('.smain');
+    const ssmain=document.querySelector('.ssmain');
+    main.addEventListener('click',(e)=>{
+        e.preventDefault();
+        alert('main clickd');
+    })
+    smain.addEventListener('click',(e)=>{
+        e.preventDefault();
+        alert('smain clickd');
+    })
+    ssmain.addEventListener('click',(e)=>{
+        e.preventDefault();
+        e.stopPropagation(); 
+        alert('ssmain clickd');
+    })
+</script>
+</html>

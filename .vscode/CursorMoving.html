@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #d1a3a3 0%, #bebcbb 99%, #23a72c 100%);
+        opacity: 0.9;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="main" id="main" onmousemove="fun(event)"></div>
+</body>
+<script>
+    const fun=(event)=>{
+        const res=document.getElementById('main');
+        var x=event.clientX;
+        var y=event.clientY;
+         res.style.left=`${x}px`;
+         res.style.top=`${y}px`;
+         console.log(`${x}px`);
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <form action="" method="post">
+            <input type="text" placeholder="enter your fname" id=fname>
+            <input type="text" placeholder="enter your fname" id=lname>
+            <button type="button" onclick="sett()">Save</button>
+        </form>
+        <div class="res" id="res"></div>
+    </div>
+</body>
+<script>
+   const sett = () => {
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+            localStorage.setItem("Name", JSON.stringify({
+                fname:`${fname}`,
+                lname:`${lname}`
+            }));
+            const res=document.getElementById('res');
+            const data = JSON.parse(localStorage.getItem("Name"));
+           res.textContent=`${data.fname} And ${data.lname}`;
+        };
+</script>
+</html>
